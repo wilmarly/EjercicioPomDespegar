@@ -7,7 +7,7 @@ public class buscarYvalidarVuelo_steps {
 	buscarYvalidarVuelo_pageObject PgObj;
 
 	@Step
-	public void select_origen() {
-		PgObj.click_en_campo_origen();
+	public void ingreso_a_navegador()  {
+		PgObj.open();
 	}
 }

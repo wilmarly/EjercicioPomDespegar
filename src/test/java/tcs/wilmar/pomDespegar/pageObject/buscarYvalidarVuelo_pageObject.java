@@ -16,8 +16,8 @@ public class buscarYvalidarVuelo_pageObject extends PageObject{
     @FindBy(how = How.XPATH,using = "//div[@class='sbox-3-input -md sbox-3-validation -top-right -icon-left sbox-origin-container places-inline']//input[@placeholder='Ingresa una ciudad']")
     private WebElementFacade txtOrigen;
     
-    public void click_en_campo_origen() {
-    	txtOrigen.click();
+    public void write_origin(){
+    	txtOrigen.click();	
     }
 
 }
