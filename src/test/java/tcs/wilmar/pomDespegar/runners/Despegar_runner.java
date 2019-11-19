@@ -6,7 +6,7 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features ="src/test/resources/features/validarPrecio.feature", glue = "tcs.wilmar.pomDespegar.definition")
-public class runnerDespegar {
+public class Despegar_runner {
 
 }
 

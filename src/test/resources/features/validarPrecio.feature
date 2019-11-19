@@ -2,17 +2,15 @@
 #Creacion de formulario
 @tag
 Feature: CP0010M Buscar un vuelvo de solo ida para 2 adultos y 3 niños,  validar el precio más barato del vuelo
-  
 
   @tag2
   Scenario Outline: Title of your scenario outline
     Given Ingreso a navegador
-    When Buscar un vuelvo desde "<origen>" a "<destino>" <ida-regreso>
-    And seleccionar si es de
-    Then validadr el menor valor de vuelo
-   
+    When seleccionar si el viaje es de <Ida_y_Regreso> o <solo_ida>
+    And Buscar un vuelvo desde "<origen>" a "<destino>"
+    And seleccionar el numero de <niños> y el numero de <adultos>
+    Then validadr el vuelo mas barato
 
     Examples: 
-      | ida-regreso  | 
-      | True         |  
-      
+      | origen | destino | Ida_y_Regreso | solo_ida | niños | adultos |
+      | bogotá | Roma    | true          | false    |     3 |       2 |
