@@ -12,6 +12,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 public class Despegar_pageObject extends PageObject{
 	
 	
+	
     //Localizadores
     @FindBy(how = How.XPATH,using = "//label[contains(text(),'Vuelos')]")
     private WebElementFacade selectVuelos;
@@ -51,6 +52,10 @@ public class Despegar_pageObject extends PageObject{
     
     @FindBy(how = How.XPATH,using = "//span[contains(text(),'Solo ida')]")
     private WebElementFacade select_solo_ida;
+    
+    public void maximiseScreen() {
+        getDriver().manage().window().maximize();
+    }
     
     public void select_vuelo_tab(){
     	selectVuelos.click();	

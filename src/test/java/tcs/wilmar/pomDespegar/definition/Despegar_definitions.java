@@ -14,10 +14,10 @@ public class Despegar_definitions {
 		step.ingreso_a_navegador();
 	}
 	
-//	@When("^seleccionar si el viaje es de \"([^\"]*)\" o \"([^\"]*)\"$")
-//	public void seleccionar_si_el_viaje_es_de_o(String arg1, String arg2) throws Exception {
-//		step.diligenciar_parametros_del_viaje(arg1,arg2);
-//	}
+	@When("^seleccionar si el viaje es de \"([^\"]*)\" o \"([^\"]*)\"$")
+	public void seleccionar_si_el_viaje_es_de_o(String arg1, String arg2) throws Exception {
+		step.diligenciar_parametros_del_viaje(arg1,arg2);
+	}
 	
 	@When("^Buscar un vuelvo desde \"([^\"]*)\" a \"([^\"]*)\"$")
 	public void buscar_un_vuelvo_desde_a(String arg1, String arg2) throws Exception{
