@@ -13,13 +13,25 @@ public class Despegar_steps {
 	}
 
 	@Step
-	public void diligenciar_parametros_del_viaje(String arg1, String arg2) {
+	public void diligenciar_parametros_del_viaje(String arg1, String arg2) throws InterruptedException {
 		PgObj.select_vuelo_tab();
+		Thread.sleep(3000);
 		PgObj.select_ida_y_vuelta(arg1, arg2);
+		
 	}
 
 	@Step
-	public void buscar_vuelo(String arg1, String arg2) {
+	public void buscar_vuelo_de_solo_ida(String arg1,String arg2){
+		PgObj.write_origin(arg1);
+		PgObj.select_origin();
+		PgObj.write_destination(arg2);
+		PgObj.select_destination();
+		PgObj.write_date();
+		PgObj.select_go_date();
+	}
+	
+	@Step
+	public void buscar_vuelo_de_ida_y_vuelta(String arg1, String arg2) {
 
 		PgObj.write_origin(arg1);
 		PgObj.select_origin();

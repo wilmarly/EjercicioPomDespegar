@@ -19,10 +19,15 @@ public class Despegar_definitions {
 	public void seleccionar_si_el_viaje_es_de_o(String arg1, String arg2) throws Exception {
 		step.diligenciar_parametros_del_viaje(arg1, arg2);
 	}
+	
+	@When("^Buscar un vuelvo desde \"([^\"]*)\" a \"([^\"]*)\" de solo ida$")
+	public void buscar_un_vuelvo_desde_a_de_solo_ida(String arg1, String arg2) throws Exception {
+		step.buscar_vuelo_de_solo_ida(arg1, arg2);
+	}
 
 	@When("^Buscar un vuelvo desde \"([^\"]*)\" a \"([^\"]*)\"$")
 	public void buscar_un_vuelvo_desde_a(String arg1, String arg2) throws Exception {
-		step.buscar_vuelo(arg1, arg2);
+		step.buscar_vuelo_de_ida_y_vuelta(arg1, arg2);
 	}
 
 	@When("^seleccionar el numero de (\\d+) y el numero de (\\d+)$")

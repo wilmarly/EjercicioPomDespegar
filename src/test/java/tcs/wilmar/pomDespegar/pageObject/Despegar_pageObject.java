@@ -2,6 +2,8 @@ package tcs.wilmar.pomDespegar.pageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 //import com.mifmif.common.regex.Generex;
 
@@ -13,7 +15,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl("https://www.despegar.com.co/")
 public class Despegar_pageObject extends PageObject {
-
+		
 	// Localizadores
 	@FindBy(how = How.XPATH, using = "//label[contains(text(),'Vuelos')]")
 	private WebElementFacade selectVuelos;
@@ -30,11 +32,17 @@ public class Despegar_pageObject extends PageObject {
 	@FindBy(how = How.XPATH, using = "//div[@class='ac-wrapper -desktop -show']//li[@class='item -active']")
 	private WebElementFacade selectDstination;
 
-	@FindBy(how = How.XPATH, using = "//div[@class='input-container sbox-bind-event-click-start-date']//input[@placeholder='Ida']")
+	@FindBy(how = How.XPATH, using = "//*[@id=\"searchbox-sbox-box-flights\"]/div/div/div[3]/div[2]/div[2]/div[2]/div[1]/div[2]/input")
 	private WebElementFacade txtFecha;
+	
+//	@FindBy(how = How.XPATH, using = "//div[@class='input-container sbox-bind-event-click-start-date']//input[@placeholder='Ida']")
+//	private WebElementFacade txtFecha;
 
-	@FindBy(how = How.XPATH, using = "//div[@class='_dpmg2--wrapper _dpmg2--roundtrip _dpmg2--show-info _dpmg2--show']//div[@class='_dpmg2--month _dpmg2--o-5 _dpmg2--month-active']//span[@class='_dpmg2--date-number'][contains(text(),'22')]")
+	@FindBy(how = How.XPATH, using = "/html/body/div[4]/div/div[5]/div[1]/div[4]/span[23]/span[1]")
 	private WebElementFacade selectFechaIda;
+	
+//	@FindBy(how = How.XPATH, using = "//div[@class='_dpmg2--wrapper _dpmg2--roundtrip _dpmg2--show-info _dpmg2--show']//div[@class='_dpmg2--month _dpmg2--o-5 _dpmg2--month-active']//span[@class='_dpmg2--date-number'][contains(text(),'22')]")
+//	private WebElementFacade selectFechaIda;
 
 	@FindBy(how = How.XPATH, using = "//div[@class='_dpmg2--month _dpmg2--o-5 _dpmg2--has-start-range _dpmg2--month-active']//span[@class='_dpmg2--date-number'][contains(text(),'25')]")
 	private WebElementFacade selectFechavuelta;
@@ -66,6 +74,9 @@ public class Despegar_pageObject extends PageObject {
 	@FindBy(how = How.XPATH, using = "/html[1]/body[1]/div[10]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[5]/app-root[1]/app-common[1]/items[1]/div[1]/span[1]/span[1]/cluster[1]/div[1]/div[1]/div[2]/fare[1]/span[1]/span[1]/main-fare[1]/span[1]/span[2]/span[1]/flights-price[1]/span[1]/flights-price-element[1]/span[1]/span[1]/em[1]/span[2]")
 	private WebElementFacade get_value;
 
+	@FindBy(how = How.XPATH, using = "//*[@id=\"searchbox-sbox-box-packages\"]/div/div/div[3]/div[2]/span/label")
+	private WebElementFacade select_sin_decidir_fecha;
+	
 	public void maximiseScreen() {
 		getDriver().manage().window().maximize();
 	}
@@ -112,10 +123,13 @@ public class Despegar_pageObject extends PageObject {
 
 		if ((arg1.equals("si"))) {
 			select_ida_y_vuelta.click();
+			
 		}
-
 		if (arg2.equals("si")) {
 			select_solo_ida.click();
+		}
+		if(arg2.equals("no") && arg1.equals("no")) {
+			select_sin_decidir_fecha.click();
 		}
 	}
 
@@ -140,7 +154,6 @@ public class Despegar_pageObject extends PageObject {
 							+ "]/div[2]/div[1]/div[1]/select[1]/option[" + (3 + i) + "]"));
 			childrensAge.click();
 			waitFor(2);
-
 		}
 	}
 
@@ -159,7 +172,12 @@ public class Despegar_pageObject extends PageObject {
 	}
 
 	public void get_value() {
+		WebDriverWait esperaExplicita = new WebDriverWait(getDriver(),35);
+		esperaExplicita.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html[1]/body[1]/div[10]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[5]/app-root[1]/app-common[1]/items[1]/div[1]/span[1]/span[1]/cluster[1]/div[1]/div[1]/div[2]/fare[1]/span[1]/span[1]/main-fare[1]/span[1]/span[2]/span[1]/flights-price[1]/span[1]/flights-price-element[1]/span[1]/span[1]/em[1]/span[2]")));
 		System.out.println("El vuelo mas barato es: "+get_value.getText());
 		waitFor(2);
+		
+		
+	//	List<WebElement> elementName = getDriver().findElements(By.LocatorStrategy("LocatorValue"));
 	}
 }
