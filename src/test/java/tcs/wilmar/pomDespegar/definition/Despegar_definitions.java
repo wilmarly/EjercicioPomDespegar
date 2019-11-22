@@ -29,6 +29,11 @@ public class Despegar_definitions {
 	public void buscar_un_vuelvo_desde_a(String arg1, String arg2) throws Exception {
 		step.buscar_vuelo_de_ida_y_vuelta(arg1, arg2);
 	}
+	
+	@When("^Buscar un vuelvo desde \"([^\"]*)\" a \"([^\"]*)\" sin fechas$")
+	public void buscar_un_vuelvo_desde_a_sin_fechas(String arg1, String arg2) throws Exception {
+		step.buscar_vuelo_sin_indicar_fechas(arg1, arg2);
+	}
 
 	@When("^seleccionar el numero de (\\d+) y el numero de (\\d+)$")
 	public void seleccionar_el_numero_de_y_el_numero_de(int arg1, int arg2) throws Exception {

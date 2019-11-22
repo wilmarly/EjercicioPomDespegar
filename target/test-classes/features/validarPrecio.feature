@@ -30,9 +30,8 @@ Feature: CP0010M Buscar un vuelvo de solo ida para 2 adultos y 3 niños,  valida
   @tag3
   Scenario Outline: CP0030M_Buscar un vuelo para 3 niños 2 adultos sin decidir fecha validar el precio más alto del vuelo.
     Given Ingreso a navegador
-    When seleccionar si el viaje es de "<Ida_y_Regreso>" o "<solo_ida>"
-    And Buscar un vuelvo desde "<origen>" a "<destino>"
-    And seleccionar el numero de <niños> y el numero de <adultos>
+    When seleccionar si el viaje es de "<Ida_y_Regreso>" o "<solo_ida>" 
+    And Buscar un vuelvo desde "<origen>" a "<destino>" sin fechas
     Then validadr el vuelo mas barato
 
     Examples: 

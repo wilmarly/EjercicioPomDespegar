@@ -41,6 +41,16 @@ public class Despegar_steps {
 		PgObj.select_go_date();
 		PgObj.select_back_date();
 	}
+	
+	@Step
+	public void buscar_vuelo_sin_indicar_fechas(String arg1, String arg2) {
+
+		PgObj.write_origin(arg1);
+		PgObj.select_origin();
+		PgObj.write_destination(arg2);
+		PgObj.select_destination();
+		PgObj.select_buscar();
+	}
 
 	@Step
 	public void seleccionar_niños_y_adultos(int arg1, int arg2) throws InterruptedException {
